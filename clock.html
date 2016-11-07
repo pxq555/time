@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>时钟
+	</title>
+	<meta charset="utf-8">
+</head>
+
+<style>
+#canvas{
+	height:200px;
+	width:200px;
+	border:1px solid black;
+
+	display: block;
+	margin: 100px auto;
+}
+</style>
+<body>
+<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+<script src="js/clock.js"></script>
+<script>
+window.onload=function(){
+	var ck=new clock();
+	setInterval(function(){
+		var date=new Date();
+		var hour=parseInt(date.getHours())>12?parseInt(date.getHours())-12:parseInt(date.getHours());
+		var minute=parseInt(date.getMinutes());
+		var second=parseInt(date.getSeconds());
+		
+		//时针
+		ck.initClock(hour,minute,second);
+	},1000);
+}
+</script>
+</html>
